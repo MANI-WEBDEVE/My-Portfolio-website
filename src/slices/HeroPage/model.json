@@ -1,0 +1,40 @@
+{
+  "id": "hero_page",
+  "type": "SharedSlice",
+  "name": "HeroPage",
+  "description": "HeroPage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Name",
+            "placeholder": "Muhammad"
+          }
+        },
+        "lastname": {
+          "type": "Text",
+          "config": {
+            "label": "lastName",
+            "placeholder": "Inam"
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "tagLine",
+            "placeholder": "Creative devloper"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
