@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { Content, KeyTextField } from "@prismicio/client";
