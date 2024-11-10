@@ -1,63 +1,66 @@
-"use client";
+"use client"
+
+import { useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import gsap, { random } from "gsap";
-import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Bounded from "@/components/Bounded";
-/**
- * Props for `HeroPage`.
- */
+
+// Dynamically import Shapes to make it client-side only
+const Shapes = dynamic(() => import("./Shapes"), { ssr: false });
+
 export type HeroPageProps = SliceComponentProps<Content.HeroPageSlice>;
 
-/**
- * Component for "HeroPage" Slices.
- */
 const HeroPage = ({ slice }: HeroPageProps): JSX.Element => {
   const component = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      tl.fromTo(
-        ".name-animation",
-        {
-          x: -100,
-          opacity: 0,
-          rotate: -10,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          rotate: 0,
-          duration: 1,
-          ease: "elastic.out(2, 0.6)",
-          transformOrigin: "right top",
-          stagger: {
-            each: 0.1,
-            from: "random",
+    // Check for window to ensure this code runs only on the client
+    if (typeof window !== undefined) {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
+        tl.fromTo(
+          ".name-animation",
+          {
+            x: -100,
+            opacity: 0,
+            rotate: -10,
           },
-        }
-      );
-      tl.fromTo(
-        ".tag-name",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.7,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          ease: "elastic.out(2, 0.2)",
-        }
-      );
-    }, component);
-    return () => ctx.revert();
+          {
+            x: 0,
+            opacity: 1,
+            rotate: 0,
+            duration: 1,
+            ease: "elastic.out(2, 0.6)",
+            transformOrigin: "right top",
+            stagger: {
+              each: 0.1,
+              from: "random",
+            },
+          }
+        );
+        tl.fromTo(
+          ".tag-name",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.7,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "elastic.out(2, 0.2)",
+          }
+        );
+      }, component);
+      return () => ctx.revert(); // Cleanup on unmount
+    }
   }, []);
 
   const renderLetter = (name: KeyTextField, key: string) => {
-    if (!name) return;
+    if (!name) return null;
     return name.split("").map((letter, index) => (
       <span
         key={index}
@@ -75,10 +78,11 @@ const HeroPage = ({ slice }: HeroPageProps): JSX.Element => {
       ref={component}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 ">
+        {/* <Shapes /> */}
         <div className="col-start-1 md:row-start-1">
           <h1
             className="mb-8 text-[clamp(3rem,15vmin,15rem)] font-extrabold leading-none tracking-tighter "
-            aria-label={slice.primary.name + " " + slice.primary.lastname}
+            aria-label={`${slice.primary.name} ${slice.primary.lastname}`}
           >
             <span className="block text-slate-300">
               {renderLetter(slice.primary.name, "first")}
