@@ -76,7 +76,7 @@ const HeroPage = ({ slice }: HeroPageProps): JSX.Element => {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 ">
         <Shapes />
-        <div className="col-start-1 md:row-start-1">
+        <div className="col-start-1 md:row-start-1 flex items-center justify-center flex-col">
           <h1
             className="mb-8 text-[clamp(3rem,15vmin,15rem)] font-extrabold leading-none tracking-tighter "
             aria-label={`${slice.primary.name} ${slice.primary.lastname}`}

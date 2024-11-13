@@ -4,16 +4,20 @@ import { Suspense, useEffect, useState, useRef } from "react";
 import { ContactShadows, Environment, Float } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { gsap } from "gsap";
+
 function Shapes() {
+
+  
   return (
     <div className="row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0">
       <Canvas
         className="z-0"
         shadows
-        gl={{ antialias: false }}
+        gl={{ antialias: true }}
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
       >
+        <Geometries />
         <Suspense fallback={null}>
           <ContactShadows
             position={[0, -3.5, 0]}
@@ -31,31 +35,121 @@ function Shapes() {
 
 export default Shapes;
 
-function Geometries () {
+function Geometries() {
   const geometries = [
     {
-      position: [0,0,0],
-      r:0.3,
-      geometry: new THREE.IcosahedronGeometry(3),
-    }
+      position: [0, 0, 0],
+      r: 0.4,
+      geometry: new THREE.IcosahedronGeometry(2),
+    },
+    {
+      position: [1, -0.75, 4],
+      r: 0.6,
+      geometry: new THREE.CapsuleGeometry(0.4, 1.2,2,16),
+    },
+    {
+      position: [2, 1.2, 0.7],
+      r: 0.4,
+      geometry: new THREE.DodecahedronGeometry(1),
+    },
+    {
+      position: [-2, -1, 0.7],
+      r: 0.8,
+      geometry:  new THREE.TorusGeometry( 0.9, 0.4, 16, 100 )
+    },
+    {
+      position: [-2.4, 1.6, 0.7],
+      r: 0.8,
+      geometry:  new THREE.OctahedronGeometry(1 )
+    },
+   
   ];
 
   const material = [
     new THREE.MeshNormalMaterial(),
-  ]
+    new THREE.MeshStandardMaterial({color: 0x16a085, roughness:0, metalness:0.1 ,flatShading:true}),
+    new THREE.MeshStandardMaterial({color: 0x05fff7 , roughness:0, metalness:0 }),
+    new THREE.MeshStandardMaterial({color: 0xe67035, roughness:0.6, metalness:0}),
+    new THREE.MeshStandardMaterial({color: 0xe67035, roughness:0.6, metalness:0}),
+    new THREE.MeshStandardMaterial({color: 0x2ecc71, roughness:0, metalness:1 , vertexColors:true}),
+    new THREE.MeshStandardMaterial({color: 0x2ecc71, roughness:0, metalness:1 , vertexColors:true}),
+    new THREE.MeshStandardMaterial({color: 0x4eb500, roughness:0.1, metalness:0.9 ,flatShading:true}),
+
+  ];
+
+  return geometries.map(({ position, r, geometry }) => (
+    <Geometry
+      key={JSON.stringify(position)}
+      position={position.map((p) => p * 2)}
+      geometry={geometry}
+      materials={material}
+      r={r}
+    />
+  ));
 }
-
-function Geometry({r, position, geometry, materials}){
-  const meshRef = useRef();
-  const [visible, setVisible] = useState(false)
-
-  const startingMaterial = getRandomMaterials()
+function Geometry({ r, position, geometry, materials }: any) {
+  const meshRef = useRef<any>();
+  const [visible, setVisible] = useState(false);
 
   const getRandomMaterials = () => {
-    return gsap.utils.random(materials)
-  }
+    return gsap.utils.random(materials);
+  };
 
-  const handleClick = (e) => {
+  const startingMaterial = getRandomMaterials();
+
+  const handleClick = (e: any) => {
     const mesh = e.object;
-  }
+
+    gsap.to(mesh.rotation, {
+      x: `+=${gsap.utils.random(0, Math.PI / 4)}`, // random rotation around x-axis
+      y: `+=${gsap.utils.random(0, Math.PI / 4)}`, // random rotation around y-axis
+      z: `+=${gsap.utils.random(0, Math.PI / 4)}`, // random rotation around z-axis
+      duration: 1,
+      ease: "elastic.out(2, 0.6)",
+    });
+  
+    mesh.material = getRandomMaterials();
+  };
+
+  const handlePointerOver = () => {
+    document.body.style.cursor = "pointer";
+  };
+  const handlePointerOut = () => {
+    document.body.style.cursor = "default";
+  };
+
+  useEffect(() => {
+    setVisible(true)
+    const ctx = gsap.context(() => {
+      gsap.from(
+        meshRef.current.scale,
+        {
+          x:0,
+          y: 0,
+          z: 0,
+          duration: 1,
+          delay: 0.5,
+          ease: "elastic.out(2, 0.4)",
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+
+  return (
+    <group position={position} ref={meshRef}>
+      <Float speed={r * 5} rotationIntensity={6 * r} floatIntensity={r * 0.1}>
+        <mesh
+          geometry={geometry}
+          onClick={handleClick}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
+          visible={visible}
+          material={startingMaterial as THREE.Material}
+        />
+      </Float>
+    </group>
+  );
 }
