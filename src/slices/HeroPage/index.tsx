@@ -1,13 +1,11 @@
-"use client"
+"use client";
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import Bounded from "@/components/Bounded";
-
-// Dynamically import Shapes to make it client-side only
-const Shapes = dynamic(() => import("./Shapes"), { ssr: false });
+import Shapes from "./Shapes";
 
 export type HeroPageProps = SliceComponentProps<Content.HeroPageSlice>;
 
