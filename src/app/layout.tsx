@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 
 
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html className="bg-slate-900 text-slate-100" lang="en">
       <body
       >
+        <Header/>
         {children}
       </body>
     </html>
