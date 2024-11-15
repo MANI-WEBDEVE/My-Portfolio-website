@@ -15,11 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="bg-slate-900 text-slate-100" lang="en">
+    <html className="bg-slate-900 text-slate-100 overflow-x-hidden" lang="en">
       <body
       >
         <Header/>
         {children}
+        <div className="h-[500vh]"></div>
       </body>
     </html>
   );

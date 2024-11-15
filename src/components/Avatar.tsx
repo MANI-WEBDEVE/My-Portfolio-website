@@ -36,12 +36,12 @@ export default function Avatar({
       );
 
       window.onmousemove = (e: any) => {
-        if (!component.current) return null;
+        if (!component.current) return console.log("bahi hai");
         const componentReact = (
           component.current as HTMLDivElement
         ).getBoundingClientRect();
-        const componentCenterX = componentReact.left + componentReact.width / 2;
-
+        const componentCenterX = componentReact.left + componentReact.width ;
+       
         let componentPrecent = {
           x: (e.clientX - componentCenterX) / componentReact.width,
         };
@@ -81,7 +81,7 @@ export default function Avatar({
     <div
       ref={component}
       className={clsx(
-        "mt-10 flex justify-center items-start row-start-1  max-w-sm md:col-start-2 md:row-end-3 relative w-full h-full "
+        "mt-10 flex justify-center items-start row-start-1  max-w-sm md:col-start-2 md:row-end-3 relative w-full h-full ref"
       )}
     >
       <div className="rounded-3xl border-2 border-slate-700 opacity-0 avatar overflow-hidden aspect-square ">
@@ -92,7 +92,7 @@ export default function Avatar({
           width={width}
           className={"avatar-image h-full w-full object-fill"}
         />
-        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-slate-900 to-transparent opacity-0 md:block"></div>
+        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 md:block transition-all duration-150"></div>
       </div>
     </div>
     // </div>
