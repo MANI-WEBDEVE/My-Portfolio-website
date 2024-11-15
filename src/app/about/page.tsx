@@ -7,7 +7,7 @@ import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import { FaCircle } from "react-icons/fa";
 const page = () => {
   return (
     <>
@@ -27,7 +27,6 @@ const page = () => {
             <p>
               My passion for coding and problem-solving drives me to create
               seamless user experiences and efficient server-side functionality.
-             
             </p>
 
             <p>
@@ -46,27 +45,49 @@ const page = () => {
               <MoveUpRight className="w-4 h-4" />
             </span>
           </Link>
-            <Avatar src={"/image/ceo3.jpg"} alt={"ceo"} width={345} height={345} />
+          <Avatar
+            src={"/image/ceo3.jpg"}
+            alt={"ceo"}
+            width={345}
+            height={345}
+          />
         </div>
       </Bounded>
-        <TechList/>
+      <TechList />
 
       <Bounded>
         <Heading as="h2" size="lg">
-            Education
+          Education
         </Heading>
-        </Bounded>
-        <div className=" px-28">
+      </Bounded>
+      <section className="">
+
+      <div className=" px-28 flex items-start gap-5 mb-12">
+        <div><FaCircle className="w-[1rem] h-[1-rem] text-slate-600 mt-4"/></div>
+        <div>
           <h4 className="font-bold leading-tight tracking-tight  text-slate-300 text-[36px]">
             Intermidiate
           </h4>
-          <h4 className="font-bold leading-tight tracking-tight  text-[#CBD5E1] text-[24px]">
-              2022 <span className="font-normal text-[27px]">/</span> GOVT Superior Collage
+          <h4 className="font-bold leading-tight tracking-tight  text-[#abb5c2] text-[24px]">
+            2024 <span className="font-normal text-[27px]">/</span> GOVT
+            Superior Collage
           </h4>
-
+          <p className="mt-4 text-lg">I did so well.</p>
         </div>
-
-
+      </div>
+      <div className=" px-28 flex items-start gap-5 mb-12">
+        <div><FaCircle className="w-[1rem] h-[1-rem] text-slate-600 mt-4"/></div>
+        <div>
+          <h4 className="font-bold leading-tight tracking-tight  text-slate-300 text-[36px]">
+            Matriculation
+          </h4>
+          <h4 className="font-bold leading-tight tracking-tight  text-[#abb5c2] text-[24px]">
+            2022 <span className="font-normal text-[27px]">/</span> Unique Primery School
+          </h4>
+          <p className="mt-4 text-lg">I did so well.</p>
+        </div>
+      </div>
+      </section>
     </>
   );
 };
