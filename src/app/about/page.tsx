@@ -2,6 +2,7 @@ import Avatar from "@/components/Avatar";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import TechList from "@/components/TechList";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,9 +46,27 @@ const page = () => {
               <MoveUpRight className="w-4 h-4" />
             </span>
           </Link>
-            <Avatar src={"/image/ceo3.jpg"} alt={"ceo"} width={245} height={245} />
+            <Avatar src={"/image/ceo3.jpg"} alt={"ceo"} width={345} height={345} />
         </div>
       </Bounded>
+        <TechList/>
+
+      <Bounded>
+        <Heading as="h2" size="lg">
+            Education
+        </Heading>
+        </Bounded>
+        <div className=" px-28">
+          <h4 className="font-bold leading-tight tracking-tight  text-slate-300 text-[36px]">
+            Intermidiate
+          </h4>
+          <h4 className="font-bold leading-tight tracking-tight  text-[#CBD5E1] text-[24px]">
+              2022 <span className="font-normal text-[27px]">/</span> GOVT Superior Collage
+          </h4>
+
+        </div>
+
+
     </>
   );
 };
