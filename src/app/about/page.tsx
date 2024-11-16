@@ -1,13 +1,12 @@
 import Avatar from "@/components/Avatar";
 import Bounded from "@/components/Bounded";
-import Button from "@/components/Button";
 import Heading from "@/components/Heading";
 import TechList from "@/components/TechList";
-import { MoveUpRight } from "lucide-react";
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 import { FaCircle } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
 const page = () => {
   return (
     <>
@@ -42,7 +41,7 @@ const page = () => {
             <span className="absolute bottom-0 inset-0 w-full h-1 bg-yellow-500 transition-all duration-300 ease-out group-hover:h-full group-hover:bottom-0"></span>
             <span className="relative items-center flex gap-2 justify-center">
               Resume
-              <MoveUpRight className="w-4 h-4" />
+              <MdArrowOutward/>
             </span>
           </Link>
           <Avatar
