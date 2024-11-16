@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Passing Event Handler As Props In React",
+        "flag": [ "React"],
+        "readmore": "Read More",
+        "hoverImage": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*m3ZscSV0ExNfszV2QeeDzg.jpeg",
+        "blogLink": "https://medium.com/@nudmaufon/passing-event-handler-as-props-a609467c5b40"
+    },
+    {
+        "title": "Coding Experience in 2024",
+        "flag": ["JavaScript", "React", "NextJS", "Tailwind"],
+        "readmore": "Read More",
+        "blogLink": "https://medium.com/@nudmaufon/passing-event-handler-as-props-a609467c5b40",
+        "hoverImage": "https://medium.com/@nudmaufon/coding-experience-38036a0ea244"
+    }
+   
+]
