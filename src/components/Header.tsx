@@ -23,8 +23,8 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/"} aria-label="home-page">
-                  About
+                <Link href={"/blog"} aria-label="home-page">
+                  Blog
                 </Link>
               </li>
             </ul>
