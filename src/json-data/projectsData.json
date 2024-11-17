@@ -3,7 +3,35 @@
         "title": "True Feedback Application",
         "flag": ["NextJS", "Tailwind", "React"],
         "viewProject": "View Project",
-        "hoverImage": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fpulse%2Ffeedback-tough-true-method-dylan-renouf-wqxde&psig=AOvVaw0Tlb9MzwPrNlySkGGX560P&ust=1731934489276000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjtqYy144kDFQAAAAAdAAAAABAJ",
+        "hoverImage": "https://img.freepik.com/free-photo/evaluation-feedback-customer-smiley-response_53876-123011.jpg",
         "projectLink": "https://github.com/MANI-WEBDEVE/True-FeedBack-app/tree/main"
+    },
+    {
+        "title": "Chat Application",
+        "flag": ["React", "Tailwind", "Express", "Socket.io"],
+        "viewProject": "View Project",
+        "hoverImage": "https://maticz.com/admin/images/blog/web3-messaging-app-development.png",
+        "projectLink": "https://github.com/MANI-WEBDEVE/Chat-Application-Project"
+    },
+    {
+        "title": "System Management",
+        "flag": ["React", "Tailwind"],
+        "viewProject": "View Project",
+        "hoverImage": "https://st2.depositphotos.com/3591429/10553/i/450/depositphotos_105533378-stock-photo-business-corporate-workers.jpg",
+        "projectLink": "https://github.com/MANI-WEBDEVE/Management-system-ReactJS"
+    },
+    {
+        "title": "Funding Application",
+        "flag": ["NextJS", "Tailwind", "NextAuth", "Stripe"],
+        "viewProject": "View Project",
+        "hoverImage": "https://img.freepik.com/premium-vector/crowfunding-business_18591-492.jpg?semt=ais_hybrid",
+        "projectLink": "https://github.com/MANI-WEBDEVE/Funding-Application"
+    },
+    {
+        "title": "Linker URL Shortener App",
+        "flag": ["NextJS", "Tailwind", "NextAuth", "Stripe"],
+        "viewProject": "View Project",
+        "hoverImage": "https://internal-blog.contentstudio.io/wp-content/uploads/2023/03/Group-4-1.png",
+        "projectLink": "https://github.com/MANI-WEBDEVE/Linker-app"
     }
 ]

@@ -1,13 +1,13 @@
 "use client"
 import React, { useRef, useState, useEffect } from 'react'
-import blogData from "../json-data/blogData.json"
+import projectData from "../json-data/projectsData.json"
 import { MdArrowOutward } from 'react-icons/md'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BlogList = () => {
+const ProjectsList = () => {
 
   const component = useRef<HTMLDivElement>(null);
   const [hoverImageList, setHoverImageList] = useState<null | number>(null)
@@ -15,10 +15,11 @@ const BlogList = () => {
   const revealImage = useRef<HTMLDivElement>(null);
   const itemsRef = useRef< Array<HTMLLIElement> >([]);
   
-  const currentImage = blogData.map((item) => {
+  const currentImage = projectData.map((item) => {
     const image = item.hoverImage;
     return image;
   })
+
 
   useEffect(() => {
     currentImage.forEach((url) => {
@@ -111,7 +112,7 @@ const BlogList = () => {
     <>
       <div className='relative' ref={component}>
         <ul className='grid border-b border-slate-500' onMouseLeave={() => handleMouseLeave()}>
-            {blogData.map((items, index) => {
+            {projectData.map((items, index) => {
               
                return  <>
 
@@ -119,7 +120,7 @@ const BlogList = () => {
                 onMouseEnter={() => handleMouseEnter(index)}
                ref={(el) => {itemsRef.current[index] = el as HTMLLIElement} }
                 >
-                    <a href={items.blogLink} target='_blank' className='flex flex-col justify-between border-t items-center border-t-slate-100 text-slate-200 md:flex-row py-10'>
+                    <a href={items.projectLink} target='_blank' className='flex flex-col justify-between border-t items-center border-t-slate-100 text-slate-200 md:flex-row py-10'>
                         <div className='flex flex-col'>
                             <span className='font-bold text-3xl'>{items.title}</span>
                             <div className='flex gap-3 text-yellow-400 text-lg font-bold'>
@@ -128,7 +129,7 @@ const BlogList = () => {
                                 ))}
                             </div>
                         </div>
-                        <span className="ml-auto flex items-center gap-3 font-medium text-xl ">{items.readmore}<MdArrowOutward/></span>
+                        <span className="ml-auto flex items-center gap-3 font-medium text-xl ">{items.viewProject}<MdArrowOutward/></span>
                     </a>
                 </li>
                 </>
@@ -149,7 +150,5 @@ const BlogList = () => {
   )
 }
 
-export default BlogList
+export default ProjectsList
 
-
-//add-the-project-data-and-blog-list-code-optimzef

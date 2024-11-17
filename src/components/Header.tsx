@@ -27,6 +27,11 @@ const Header = () => {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href={"/projects"} aria-label="home-page">
+                 Projects
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
