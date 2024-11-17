@@ -1,0 +1,17 @@
+.hover-reveal {
+    position: absolute;
+    z-index: -10;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    border: 2px solid #fff;
+    transform: translate3d(0, 0, 0); /* Reset initial state */
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .relative {
+    position: relative; /* Required for absolute child positioning */
+    overflow: visible; /* Ensure child can move freely */
+  }
+  
