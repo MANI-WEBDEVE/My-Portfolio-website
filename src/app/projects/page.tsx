@@ -2,7 +2,7 @@ import ProjectsList from "@/components/ProjectsList"
 import Bounded from '@/components/Bounded'
 import Heading from '@/components/Heading'
 import React from 'react'
-
+import { Metadata } from "next"
 const page = () => {
   return (
   <>
@@ -19,3 +19,9 @@ const page = () => {
 }
 
 export default page
+
+export const metadata: Metadata = {
+  title: "M-Inam Projects📰",
+  description: "Discover a range of innovative web projects, highlighting cutting-edge technology and creative design solutions, tailored to meet diverse client needs.",
+  
+};

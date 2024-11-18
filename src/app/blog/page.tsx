@@ -1,6 +1,8 @@
+
 import BlogList from '@/components/BlogList'
 import Bounded from '@/components/Bounded'
 import Heading from '@/components/Heading'
+import { Metadata } from 'next'
 import React from 'react'
 
 const page = () => {
@@ -19,3 +21,9 @@ const page = () => {
 }
 
 export default page
+
+ export const metadata: Metadata = {
+  title: "M-Inam Blogs✒",
+  description: "Explore insightful articles on web development, technology trends, and creative solutions. Our blog offers expert perspectives, practical tips, and in-depth analyses to keep you informed and inspired in the ever-evolving digital landscape.",
+  
+};

@@ -16,8 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await client.getSingle("homepage");
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: "M-Inam Portfolio✨",
+    description: "Welcome to my portfolio. Explore my projects, skills, and experiences in web development and design. Let's build something amazing together!",
     
   };
 }
+// description: page.data.meta_description,
