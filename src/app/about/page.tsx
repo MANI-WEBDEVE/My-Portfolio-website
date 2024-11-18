@@ -48,46 +48,50 @@ const Page = () => {
   return (
     <>
       <Bounded>
-        <div className="grid  gap-y-6 md:grid-cols-[2fr,1fr] items-start">
-          <Heading as="h1" size="xl" className="col-start-1 about-content">
-            About Inam
-          </Heading>
-          <div className="prose prose-xl prose-slate prose-invert col-start-1 mt-4 space-y-4">
-            <p className="about-content">
-              As a dedicated full-stack developer with a strong foundation in
-              both front-end and back-end technologies, I specialize in building
-              high-quality, scalable web applications. I'm proficient in tools
-              and frameworks like Next.js, React.js, Node.js, and Express
-            </p>
+        <div className="grid gap-y-8 md:gap-x-12 md:grid-cols-[2fr,1fr] items-start max-w-6xl mx-auto">
+          <div className="order-2 md:order-1">
+            <Heading as="h1" size="xl" className="about-content mb-6">
+              About Inam
+            </Heading>
+            <div className="prose prose-lg sm:prose-xl prose-slate prose-invert space-y-4 sm:space-y-6">
+              <p className="about-content text-base sm:text-lg md:text-xl">
+                As a dedicated full-stack developer with a strong foundation in
+                both front-end and back-end technologies, I specialize in building
+                high-quality, scalable web applications. I'm proficient in tools
+                and frameworks like Next.js, React.js, Node.js, and Express
+              </p>
 
-            <p className="about-content">
-              My passion for coding and problem-solving drives me to create
-              seamless user experiences and efficient server-side functionality.
-            </p>
+              <p className="about-content text-base sm:text-lg md:text-xl">
+                My passion for coding and problem-solving drives me to create
+                seamless user experiences and efficient server-side functionality.
+              </p>
 
-            <p className="about-content">
-              I'm eager to tackle challenging problems and am always on the
-              lookout for new tools and best practices to enhance my development
-              process.
-            </p>
+              <p className="about-content text-base sm:text-lg md:text-xl">
+                I'm eager to tackle challenging problems and am always on the
+                lookout for new tools and best practices to enhance my development
+                process.
+              </p>
+            </div>
+            <Link
+              href="#"
+              className="about-content w-fit relative inline-block px-4 sm:px-5 py-2 font-semibold text-gray-900 border border-gray-900 rounded-md bg-white overflow-hidden group hover:text-black transform transition-all duration-300 ease-out mt-6 sm:mt-8 hover:scale-105"
+            >
+              <span className="absolute bottom-0 inset-0 w-full h-1 bg-yellow-500 transition-all duration-300 ease-out group-hover:h-full group-hover:bottom-0"></span>
+              <span className="relative items-center flex gap-2 justify-center text-sm sm:text-base">
+                Resume
+                <MdArrowOutward className="text-lg sm:text-xl" />
+              </span>
+            </Link>
           </div>
-          <Link
-            href="#"
-            className="about-content w-fit relative inline-block px-5 py-2 font-semibold text-gray-900 border border-gray-900 rounded-md bg-white overflow-hidden group hover:text-black transform transition-all duration-300 ease-out mt-4 hover:scale-105"
-          >
-            <span className="absolute bottom-0 inset-0 w-full h-1 bg-yellow-500 transition-all duration-300 ease-out group-hover:h-full group-hover:bottom-0"></span>
-            <span className="relative items-center flex gap-2 justify-center">
-              Resume
-              <MdArrowOutward />
-            </span>
-          </Link>
-          <div className="avatar-container row-start-1 md:row-auto md:col-start-2">
-            <Avatar
-              src={"/image/ceo3.jpg"}
-              alt={"ceo"}
-              width={345}
-              height={345}
-            />
+          <div className="avatar-container order-1 md:order-2 flex justify-center md:justify-end">
+            <div className="w-48 sm:w-64 md:w-full max-w-[345px]">
+              <Avatar
+                src={"/image/ceo3.jpg"}
+                alt={"ceo"}
+                width={345}
+                height={345}
+              />
+            </div>
           </div>
         </div>
       </Bounded>
