@@ -50,7 +50,7 @@ const Header = () => {
             />
           </div>
           <div className="hidden md:block">
-            <ul className="flex items-center gap-4 font-semibold ">
+            <ul className="flex items-center gap-3 font-semibold ">
               <li className="flex items-center gap-2 relative px-3 py-2 group">
                 <Link
                   href={"/about"}
@@ -61,7 +61,7 @@ const Header = () => {
                 </Link>
                 <span className="absolute bottom-0 left-0 bg-yellow-400 w-full h-1 rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
-
+              <span className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline" aria-hidden="true">/</span>
               <li className="flex items-center gap-2 relative px-3 py-2 group">
                 <Link
                   href={"/blog"}
@@ -72,6 +72,7 @@ const Header = () => {
                 </Link>
                 <span className="absolute bottom-0 left-0 bg-yellow-400 w-full h-1 rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
+              <span className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline" aria-hidden="true">/</span>
 
               <li className="flex items-center gap-2 relative px-3 py-2 group">
                 <Link
