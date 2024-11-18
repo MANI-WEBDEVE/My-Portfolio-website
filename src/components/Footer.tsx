@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <>
       <Bounded as="footer" className="">
-        <footer className="bg-slate-900 flex flex-col items-center justify-between gap-5 w-full sm:flex-row sm:justify-between ">
+        <footer className=" flex flex-col items-center justify-between gap-5 w-full sm:flex-row sm:justify-between ">
           <div className="flex items-center  flex-col gap-1 sm:flex-row ">
             <h2 className="text-2xl font-extrabold hover:text-yellow-500 ">
               <Link href="/" className="hover:text-yellow-500 transition-colors">M-Inam</Link>

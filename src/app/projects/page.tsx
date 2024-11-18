@@ -11,6 +11,7 @@ const page = () => {
         <div className='prose prose-xl prose-invert mb-10 mt-10'>
             <p>Explore my diverse portfolio of web projects showcasing innovative solutions and creative designs.</p>
         </div>
+      
         <ProjectsList />
     </Bounded>   
   </>

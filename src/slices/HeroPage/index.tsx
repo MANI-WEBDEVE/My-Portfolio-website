@@ -78,10 +78,10 @@ const HeroPage = ({ slice }: HeroPageProps): JSX.Element => {
         <Shapes />
         <div className="col-start-1 md:row-start-1 flex items-center justify-center flex-col">
           <h1
-            className="mb-8 text-[clamp(3rem,15vmin,15rem)] font-extrabold leading-none tracking-tighter "
+            className="mb-8 text-[clamp(3rem,20vmin,15rem)] font-extrabold leading-none tracking-tighter "
             aria-label={`${slice.primary.name} ${slice.primary.lastname}`}
           >
-            <span className="block text-slate-300">
+            <span className="block text-slate-300 ">
               {renderLetter(slice.primary.name, "first")}
             </span>
             <span className="block text-slate-500 -mt-[.2em]">

@@ -6,6 +6,8 @@ import { Canvas } from "@react-three/fiber";
 import { gsap } from "gsap";
 
 function Shapes() {
+
+  
   return (
     <div className="row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0">
       <Canvas
@@ -35,6 +37,7 @@ function Shapes() {
 export default Shapes;
 
 function Geometries() {
+
   const geometries = [
     {
       position: [0.3, 0, 3],
@@ -110,25 +113,22 @@ function Geometries() {
     }),
   ];
 
-  const soundEffect = [
-    new Audio("/sounds/m1.mp3"),
-    new Audio("/sounds/m2.mp3"),
-    new Audio("/sounds/m3.mp3"),
-  ];
+
+
 
   return geometries.map(({ position, r, geometry }) => (
     <Geometry
       key={JSON.stringify(position)}
       position={position.map((p) => p * 2)}
       geometry={geometry}
-      soundEffect={soundEffect}
+     
       materials={material}
       r={r}
     />
   ));
 }
 
-function Geometry({ r, position, geometry, materials, soundEffect }:any) {
+function Geometry({ r, position, geometry, materials }:any) {
   const meshRef = useRef<any>();
   const [visible, setVisible] = useState(false);
 
