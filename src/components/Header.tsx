@@ -27,68 +27,78 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0   right-0 z-[999] mx-auto rounded-b-xl max-w-7xl md:sticky md:top-4 bg-white/90 backdrop-blur-sm px-4 py-3 md:rounded-xl md:mx-auto md:w-[95%]">
+      <header className="fixed left-0 right-0 top-0 z-[999] mx-auto max-w-7xl rounded-b-xl bg-white/90 px-4 py-3 backdrop-blur-sm md:sticky md:top-4 md:mx-auto md:w-[95%] md:rounded-xl">
         <nav className="flex items-center justify-between text-[#0F172A]">
           <div>
             <ul>
               <li>
-                <Link 
+                <Link
                   href={"/"}
                   aria-label="home-page"
-                  className="text-xl sm:text-2xl md:text-[25px] font-extrabold"
+                  className="text-xl font-extrabold sm:text-2xl md:text-[25px]"
                 >
                   M-Inam
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="md:hidden block">
+          <div className="block md:hidden">
             <HiOutlineMenu
-              className="text-2xl cursor-pointer hover:text-yellow-500 transition-colors"
+              className="cursor-pointer text-2xl transition-colors hover:text-yellow-500"
               onClick={handleOpenSideNavBar}
             />
           </div>
           <div className="hidden md:block">
-            <ul className="flex items-center gap-3 font-semibold ">
-              <li className="flex items-center gap-2 relative px-3 py-2 group">
+            <ul className="flex items-center gap-3 font-semibold">
+              <li className="group relative flex items-center gap-2 px-3 py-2">
                 <Link
                   href={"/about"}
                   aria-label="home-page"
-                  className="z-[1] relative"
+                  className="relative z-[1]"
                 >
                   About
                 </Link>
-                <span className="absolute bottom-0 left-0 bg-yellow-400 w-full h-1 rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+                <span className="absolute bottom-0 left-0 h-1 w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
-              <span className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline" aria-hidden="true">/</span>
-              <li className="flex items-center gap-2 relative px-3 py-2 group">
+              <span
+                className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
+                aria-hidden="true"
+              >
+                /
+              </span>
+              <li className="group relative flex items-center gap-2 px-3 py-2">
                 <Link
                   href={"/blog"}
                   aria-label="home-page"
-                  className="z-[1] relative"
+                  className="relative z-[1]"
                 >
                   Blog
                 </Link>
-                <span className="absolute bottom-0 left-0 bg-yellow-400 w-full h-1 rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+                <span className="absolute bottom-0 left-0 h-1 w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
-              <span className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline" aria-hidden="true">/</span>
+              <span
+                className="hidden text-4xl font-thin leading-[0] text-slate-400 md:inline"
+                aria-hidden="true"
+              >
+                /
+              </span>
 
-              <li className="flex items-center gap-2 relative px-3 py-2 group">
+              <li className="group relative flex items-center gap-2 px-3 py-2">
                 <Link
                   href={"/projects"}
                   aria-label="home-page"
-                  className="z-[1] relative"
+                  className="relative z-[1]"
                 >
                   Projects
                 </Link>
-                <span className="absolute bottom-0 left-0 bg-yellow-400 w-full h-1 rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+                <span className="absolute bottom-0 left-0 h-1 w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
               <Link
                 href="#"
-                className="w-full relative px-5 py-2 font-semibold text-gray-900 border border-gray-900 rounded-md bg-white overflow-hidden group hover:text-black transform transition-transform duration-300 ease-out  hover:scale-105"
+                className="group relative w-full transform overflow-hidden rounded-md border border-gray-900 bg-white px-5 py-2 font-semibold text-gray-900 transition-transform duration-300 ease-out hover:scale-105 hover:text-black"
               >
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-500 transition-all duration-300 ease-out group-hover:h-full group-hover:bottom-0"></span>
-                <span className="relative items-center flex gap-2 justify-center">
+                <span className="absolute bottom-0 left-0 h-1 w-full bg-yellow-500 transition-all duration-300 ease-out group-hover:bottom-0 group-hover:h-full"></span>
+                <span className="relative flex items-center justify-center gap-2">
                   Resume
                   <MdArrowOutward />
                 </span>
@@ -98,60 +108,63 @@ const Header = () => {
         </nav>
       </header>
 
-      <div className="w-full h-screen bg-white/95 backdrop-blur-md fixed top-0 right-0 z-[1002] translate-x-[100%] text-black side-bar ">
-        <div className="flex flex-col h-full px-4 sm:px-7 py-4">
-          <div className="flex justify-end w-full">
-            <IoClose className="text-2xl sm:text-3xl cursor-pointer hover:text-yellow-500 transition-colors" onClick={handleCloseSideNavBar} />
+      <div className="side-bar fixed right-0 top-0 z-[1002] h-screen w-full translate-x-[100%] bg-white/95 text-black backdrop-blur-md">
+        <div className="flex h-full flex-col px-4 py-4 sm:px-7">
+          <div className="flex w-full justify-end">
+            <IoClose
+              className="cursor-pointer text-2xl transition-colors hover:text-yellow-500 sm:text-3xl"
+              onClick={handleCloseSideNavBar}
+            />
           </div>
-          <ul className="flex flex-col items-center justify-center flex-1 gap-6 sm:gap-10 font-semibold text-3xl sm:text-4xl md:text-5xl">
+          <ul className="flex flex-1 flex-col items-center justify-center gap-6 text-3xl font-semibold sm:gap-10 sm:text-4xl md:text-5xl">
             <li
-              className="flex items-center gap-2 relative px-3 py-2 group"
+              className="group relative flex items-center gap-2 px-3 py-2"
               onClick={handleCloseSideNavBar}
             >
               <Link
                 href={"/about"}
                 aria-label="home-page"
-                className="z-[1] relative"
+                className="relative z-[1]"
               >
                 About
               </Link>
-              <span className="absolute bottom-[-10%] left-0 bg-yellow-400 w-full h-[1px] rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+              <span className="absolute bottom-[-10%] left-0 h-[1px] w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
             </li>
 
             <li
-              className="flex items-center gap-2 relative px-3 py-2 group "
+              className="group relative flex items-center gap-2 px-3 py-2"
               onClick={handleCloseSideNavBar}
             >
               <Link
                 href={"/blog"}
                 aria-label="home-page"
-                className="z-[1] relative"
+                className="relative z-[1]"
               >
                 Blog
               </Link>
-              <span className="absolute bottom-[-10%] left-0 bg-yellow-400 w-full h-[1px] rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+              <span className="absolute bottom-[-10%] left-0 h-[1px] w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
             </li>
 
             <li
-              className="flex items-center gap-2 relative px-3 py-2 group"
+              className="group relative flex items-center gap-2 px-3 py-2"
               onClick={handleCloseSideNavBar}
             >
               <Link
                 href={"/projects"}
                 aria-label="home-page"
-                className="z-[1] relative"
+                className="relative z-[1]"
               >
                 Projects
               </Link>
-              <span className="absolute bottom-[-10%] left-0 bg-yellow-400 w-full h-[1px] rounded-lg transition-all duration-300 ease-out group-hover:h-full"></span>
+              <span className="absolute bottom-[-10%] left-0 h-[1px] w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
             </li>
             <Link
               href="#"
-              className="w-auto relative px-4 sm:px-5 py-2 font-semibold text-gray-900 border border-gray-900 rounded-md bg-white overflow-hidden group hover:text-black transform transition-transform duration-300 ease-out hover:scale-105 text-2xl sm:text-3xl"
+              className="group relative w-auto transform overflow-hidden rounded-md border border-gray-900 bg-white px-4 py-2 text-2xl font-semibold text-gray-900 transition-transform duration-300 ease-out hover:scale-105 hover:text-black sm:px-5 sm:text-3xl"
             >
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-500 transition-all duration-300 ease-out group-hover:h-full group-hover:bottom-0"></span>
+              <span className="absolute bottom-0 left-0 h-1 w-full bg-yellow-500 transition-all duration-300 ease-out group-hover:bottom-0 group-hover:h-full"></span>
               <span
-                className="relative items-center flex gap-2 justify-center"
+                className="relative flex items-center justify-center gap-2"
                 onClick={handleCloseSideNavBar}
               >
                 Resume
