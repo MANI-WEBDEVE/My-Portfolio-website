@@ -39,7 +39,7 @@ const BlogList = () => {
   }
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       itemsRef.current.forEach((items) => {
         gsap.fromTo(items, {
           opacity: 0, y: 25, duration:0.8
@@ -77,7 +77,7 @@ const BlogList = () => {
         // Math.pow(mousePosition.y - lastMousePosition.current.y, 2) // Include Y-axis for speed
       );
  
-      const ctx = gsap.context(() => {
+      const ctxx = gsap.context(() => {
         if (currentImage !== null) {
           const maxX = window.innerWidth - 250; // Ensure image doesn't exceed right boundary
           const maxY = window.scrollY + window.innerHeight - 550; // Ensure image doesn't exceed bottom boundary
@@ -97,7 +97,7 @@ const BlogList = () => {
         lastMousePosition.current = mousePosition; // Update last mouse position
       }, component);
 
-      return () => ctx.revert(); // Cleanup GSAP context on unmount
+      return () => ctxx.revert(); // Cleanup GSAP context on unmount
     };
 
     window.addEventListener("mousemove", handleMouseSpeed);

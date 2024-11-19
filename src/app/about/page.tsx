@@ -8,7 +8,6 @@ import React, { useEffect } from "react";
 import { FaCircle } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import { gsap } from "gsap";
-import { Metadata } from "next";
 
 const Page = () => {
   useEffect(() => {

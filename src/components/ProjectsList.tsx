@@ -42,7 +42,7 @@ const ProjectsList = () => {
   };
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       itemsRef.current.forEach((item) => {
         if (!item) return;
         gsap.fromTo(item, 
@@ -83,7 +83,7 @@ const ProjectsList = () => {
         Math.pow(mousePosition.x - lastMousePosition.current.x, 2)
       );
 
-      let ctx = gsap.context(() => {
+      const ctxx = gsap.context(() => {
         if (currentImage !== null && revealImage.current) {
           const maxX = window.innerWidth - 250;
           const maxY = window.scrollY + window.innerHeight - 550;
@@ -100,7 +100,7 @@ const ProjectsList = () => {
       }, component);
 
       return () => {
-        ctx.revert();
+        ctxx.revert();
       };
     };
 

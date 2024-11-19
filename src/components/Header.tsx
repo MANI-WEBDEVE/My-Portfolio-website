@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+
 import { MdArrowOutward } from "react-icons/md";
 import { gsap } from "gsap";
 import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 const Header = () => {
   const handleOpenSideNavBar = () => {
-    let ctx = gsap.context(() => {
+    gsap.context(() => {
       gsap.to(".side-bar", {
         translateX: "0%",
         duration: 1,
@@ -16,7 +16,7 @@ const Header = () => {
     });
   };
   const handleCloseSideNavBar = () => {
-    let ctx = gsap.context(() => {
+   gsap.context(() => {
       gsap.to(".side-bar", {
         translateX: "100%",
         duration: 2,

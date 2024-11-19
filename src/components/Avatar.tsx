@@ -17,12 +17,12 @@ export default function Avatar({
   alt,
   width,
   height,
-  className,
+
 }: ImageProps) {
   const component = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         ".avatar",
         { opacity: 0, scale: 1.5 },
@@ -35,18 +35,24 @@ export default function Avatar({
         }
       );
 
-      window.onmousemove = (e: any) => {
-        if (!component.current) return console.log("bahi hai");
+      window.onmousemove = (e: MouseEvent) => {
+        if (!component.current) return 
         const componentReact = (
           component.current as HTMLDivElement
         ).getBoundingClientRect();
         const componentCenterX = componentReact.left + componentReact.width ;
-       
-        let componentPrecent = {
-          x: (e.clientX - componentCenterX) / componentReact.width,
-        };
-
-        let distFromCenter = 1 - Math.abs(componentPrecent.x);
+        // const componentCenterY = componentReact.top + componentReact.height / 2;
+        const componentPrecent = Math.min(
+          Math.max(
+            (e.clientX - componentCenterX) / (componentReact.width / 2),
+            -1
+          ),
+          1
+        );
+        const distFromCenter = Math.min(
+          Math.abs(e.clientX - componentCenterX) / (componentReact.width / 2),
+          1
+        );
 
         gsap
           .timeline({
@@ -59,7 +65,7 @@ export default function Avatar({
           .to(
             ".avatar",
             {
-              rotation: gsap.utils.clamp(-3, 3, 8 * componentPrecent.x),
+              rotation: gsap.utils.clamp(-3, 3, 8 * componentPrecent),
               duration: -0.1,
            
             },
@@ -68,7 +74,7 @@ export default function Avatar({
         
           .to(".highlight", {
             opacity: distFromCenter - 0.6,
-            x: (-10 + 20) & componentPrecent.x,
+            x: (-10 + 20) & componentPrecent,
             duration: 0.3,
           }, 0);
       };

@@ -8,12 +8,12 @@ type ButtonProps = {
   className?: string;
 };
 
-export default function ({
+const Button = ({
   linkFiled,
   children,
   lable,
   className,
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <Link
       href={linkFiled}
@@ -27,4 +27,7 @@ export default function ({
       <span className="absolute inset-0 z-0 h-full bg-yellow-400 duration-300 ease-in-out transition-transform group-hover:translate-y-h-full "></span>
     </Link>
   );
-}
+};
+
+Button.displayName = "Button";
+export default Button;

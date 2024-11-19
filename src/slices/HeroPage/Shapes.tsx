@@ -2,7 +2,7 @@
 import * as THREE from "three";
 import { Suspense, useEffect, useState, useRef } from "react";
 import { ContactShadows, Environment, Float } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { gsap } from "gsap";
 
 function Shapes() {
@@ -124,17 +124,23 @@ function Geometries() {
   return geometries.map(({ position, r, geometry }) => (
     <Geometry
       key={JSON.stringify(position)}
-      position={position.map((p) => p * 2)}
+      position={[position[0] * 2, position[1] * 2, position[2] * 2] as [number, number, number]}
       geometry={geometry}
-     
       materials={material}
       r={r}
     />
   ));
 }
 
-function Geometry({ r, position, geometry, materials }:any) {
-  const meshRef = useRef<any>();
+interface GeometryProps {
+  r: number;
+  position: [number, number, number];
+  geometry: THREE.BufferGeometry;
+  materials: THREE.Material[];
+}
+
+function Geometry({ r, position, geometry, materials }: GeometryProps) {
+  const meshRef = useRef<THREE.Group>(null);
   const [visible, setVisible] = useState(false);
 
   const getRandomMaterials = () => {
@@ -143,19 +149,19 @@ function Geometry({ r, position, geometry, materials }:any) {
 
   const startingMaterial = getRandomMaterials();
 
-  const handleClick = (e:any) => {
-    const mesh = e.object;
-    if (e.object.geometry.type === "IcosahedronGeometry") {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
+    const mesh = e.object as THREE.Mesh<THREE.BufferGeometry, THREE.Material>;
+    if (mesh.geometry.type === "IcosahedronGeometry") {
       new Audio("/sounds/m4.ogg").play();
-      const bgv = new Audio("/sounds/voice.mp3").play();
-      // bgv.volume = 0.1;
-    } else if (e.object.geometry.type === "CapsuleGeometry") {
+      new Audio("/sounds/voice.mp3").play();
+      
+    } else if (mesh.geometry.type === "CapsuleGeometry") {
       new Audio("/sounds/m1.mp3").play();
-    } else if (e.object.geometry.type === "DodecahedronGeometry") {
+    } else if (mesh.geometry.type === "DodecahedronGeometry") {
       new Audio("/sounds/m2.mp3").play();
-    } else if (e.object.geometry.type === "TorusGeometry") {
+    } else if (mesh.geometry.type === "TorusGeometry") {
       new Audio("/sounds/cp.mp3").play();
-    } else if (e.object.geometry.type === "OctahedronGeometry") {
+    } else if (mesh.geometry.type === "OctahedronGeometry") {
       new Audio("/sounds/dim1.mp3").play();
     }
 
@@ -179,7 +185,9 @@ function Geometry({ r, position, geometry, materials }:any) {
 
   useEffect(() => {
     setVisible(true);
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
+      if (!meshRef.current) return;
+      
       gsap.from(meshRef.current.scale, {
         x: 0,
         y: 0,
