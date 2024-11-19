@@ -56,7 +56,7 @@ const Page = () => {
               <p className="about-content text-base sm:text-lg md:text-xl">
                 As a dedicated full-stack developer with a strong foundation in
                 both front-end and back-end technologies, I specialize in building
-                high-quality, scalable web applications. I'm proficient in tools
+                high-quality, scalable web applications. I&apos;m proficient in tools
                 and frameworks like Next.js, React.js, Node.js, and Express
               </p>
 
@@ -66,7 +66,7 @@ const Page = () => {
               </p>
 
               <p className="about-content text-base sm:text-lg md:text-xl">
-                I'm eager to tackle challenging problems and am always on the
+                I&apos;m eager to tackle challenging problems and am always on the
                 lookout for new tools and best practices to enhance my development
                 process.
               </p>

@@ -13,7 +13,7 @@ export default async function Page() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const page = await client.getSingle("homepage");
+  await client.getSingle("homepage");
 
   return {
     title: "M-Inam Portfolio✨",
