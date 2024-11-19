@@ -40,17 +40,17 @@ function Geometries() {
 
   const geometries = [
     {
-      position: [0.3, 0, 3],
+      position: [0.35, 0, 3],
       r: 0.4,
-      geometry: new THREE.IcosahedronGeometry(1.8),
+      geometry: new THREE.IcosahedronGeometry(2),
     },
     {
-      position: [1, -0.75, 4],
+      position: [1, -0.75, 5],
       r: 0.6,
-      geometry: new THREE.CapsuleGeometry(0.4, 1.2, 2, 16),
+      geometry: new THREE.CapsuleGeometry(0.47, 1.4, 2, 16),
     },
     {
-      position: [1.9, 1.7, 0.7],
+      position: [1.9, 0.7, 0.7],
       r: 0.4,
       geometry: new THREE.DodecahedronGeometry(1),
     },
@@ -60,9 +60,14 @@ function Geometries() {
       geometry: new THREE.TorusGeometry(0.9, 0.4, 16, 100),
     },
     {
-      position: [-1.2, 1.2, 0.7],
+      position: [-1, 1.2, 0.7],
       r: 0.8,
       geometry: new THREE.OctahedronGeometry(1),
+    },
+    {
+      position: [0.6, 1.8, 0.5],
+      r: 0.8,
+      geometry: new THREE.ConeGeometry( 1, 2, 32 )
     },
   ];
 
@@ -179,8 +184,8 @@ function Geometry({ r, position, geometry, materials }:any) {
         x: 0,
         y: 0,
         z: 0,
-        duration: 1,
-        delay: 0.5,
+        duration: 1.9,
+        delay: 1.5,
         ease: "elastic.out(2, 0.4)",
       });
     });

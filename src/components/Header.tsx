@@ -27,12 +27,12 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 mx-auto rounded-b-xl max-w-7xl md:sticky md:top-4 bg-white/90 backdrop-blur-sm px-4 py-3 md:rounded-xl md:mx-auto md:w-[95%]">
+      <header className="fixed top-0 left-0   right-0 z-[999] mx-auto rounded-b-xl max-w-7xl md:sticky md:top-4 bg-white/90 backdrop-blur-sm px-4 py-3 md:rounded-xl md:mx-auto md:w-[95%]">
         <nav className="flex items-center justify-between text-[#0F172A]">
           <div>
             <ul>
               <li>
-                <Link
+                <Link 
                   href={"/"}
                   aria-label="home-page"
                   className="text-xl sm:text-2xl md:text-[25px] font-extrabold"
@@ -98,7 +98,7 @@ const Header = () => {
         </nav>
       </header>
 
-      <div className="w-full h-screen bg-white/95 backdrop-blur-md fixed top-0 right-0 z-[90] translate-x-[100%] text-black side-bar ">
+      <div className="w-full h-screen bg-white/95 backdrop-blur-md fixed top-0 right-0 z-[1002] translate-x-[100%] text-black side-bar ">
         <div className="flex flex-col h-full px-4 sm:px-7 py-4">
           <div className="flex justify-end w-full">
             <IoClose className="text-2xl sm:text-3xl cursor-pointer hover:text-yellow-500 transition-colors" onClick={handleCloseSideNavBar} />

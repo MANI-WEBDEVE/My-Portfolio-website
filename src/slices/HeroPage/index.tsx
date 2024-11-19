@@ -31,6 +31,7 @@ const HeroPage = ({ slice }: HeroPageProps): JSX.Element => {
             duration: 1,
             ease: "elastic.out(2, 0.6)",
             transformOrigin: "right top",
+            delay:1,
             stagger: {
               each: 0.1,
               from: "random",
