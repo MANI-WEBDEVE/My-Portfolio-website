@@ -20,17 +20,17 @@ export async function generateMetadata(): Promise<Metadata> {
     description: "Welcome to my portfolio. Explore my projects, skills, and experiences in web development and design. Let's build something amazing together!",
     icons: {
       icon: "./image/ceo3.jpg",
-      shortcut: "/icon.png",
-      apple: "/icon.png",
+      shortcut: "./image/ceo3.jpg",
+      apple: "./image/ceo3.jpg",
       other: {
         rel: "apple-touch-icon-precomposed",
-        url: "/icon.png",
+        url: "./image/ceo3.jpg",
       },
     },
     openGraph: {
       title: "M-Inam Portfolio✨",
       description: "Welcome to my portfolio. Explore my projects, skills, and experiences in web development and design.",
-      images: ['/icon.png'],
+      images: ['./image/ceo3.jpg'],
     },
   };
 }
