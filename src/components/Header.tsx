@@ -94,12 +94,12 @@ const Header = () => {
                 <span className="absolute bottom-0 left-0 h-1 w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
               </li>
               <Link
-                href="#"
+                href="/contact"
                 className="group relative w-full transform overflow-hidden rounded-md border border-gray-900 bg-white px-5 py-2 font-semibold text-gray-900 transition-transform duration-300 ease-out hover:scale-105 hover:text-black"
               >
                 <span className="absolute bottom-0 left-0 h-1 w-full bg-yellow-500 transition-all duration-300 ease-out group-hover:bottom-0 group-hover:h-full"></span>
                 <span className="relative flex items-center justify-center gap-2">
-                  Resume
+                  Contact
                   <MdArrowOutward />
                 </span>
               </Link>
@@ -159,7 +159,7 @@ const Header = () => {
               <span className="absolute bottom-[-10%] left-0 h-[1px] w-full rounded-lg bg-yellow-400 transition-all duration-300 ease-out group-hover:h-full"></span>
             </li>
             <Link
-              href="#"
+              href="/contact"
               className="group relative w-auto transform overflow-hidden rounded-md border border-gray-900 bg-white px-4 py-2 text-2xl font-semibold text-gray-900 transition-transform duration-300 ease-out hover:scale-105 hover:text-black sm:px-5 sm:text-3xl"
             >
               <span className="absolute bottom-0 left-0 h-1 w-full bg-yellow-500 transition-all duration-300 ease-out group-hover:bottom-0 group-hover:h-full"></span>
@@ -167,7 +167,7 @@ const Header = () => {
                 className="relative flex items-center justify-center gap-2"
                 onClick={handleCloseSideNavBar}
               >
-                Resume
+                Contact
                 <MdArrowOutward />
               </span>
             </Link>
