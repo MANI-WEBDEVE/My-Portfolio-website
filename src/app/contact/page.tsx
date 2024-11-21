@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import axios from "axios";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,34 +18,28 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // setStatus("Sending...");
-    console.log(formData);
+    setStatus("Sending...");
+    // console.log(formData);
 
-    // try {
-    //   const response = await fetch("/api/send-email", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
+    try {
+      const response = await axios.post("/api/send-email", formData);
 
-    //   if (response.ok) {
-    //     setStatus("Message sent successfully!");
-    //     setFormData({ name: "", email: "", message: "" });
-    //   } else {
-    //     setStatus("Failed to send message. Please try again.");
-    //   }
-    // } catch (error) {
-    //   console.error(error);
-    //   setStatus("An error occurred. Please try again later.");
-    // }
+      if (response.status === 200) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("An error occurred. Please try again later.");
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br  relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute w-96 h-96 bg-blue-400/30 rounded-full blur-3xl -top-68 left-28 animate-pulse z-[1200]"></div>
+      <div className="absolute w-96 h-96 bg-blue-400/30 rounded-full blur-3xl -top-68 left-28 animate-pulse "></div>
       <div className="absolute w-96 h-96 bg-purple-200/20 rounded-full blur-3xl -bottom-18 -right-48 animate-pulse delay-700 "></div>
       
       <div className="w-full max-w-md p-8 rounded-2xl shadow-2xl  backdrop-blur-sm  border-[1px] border-neutral-700 relative z-10 hover:shadow-blue-500/10 transition-all duration-500">
@@ -91,7 +85,7 @@ export default function Contact() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         </form>
-        <p className="mt-4 text-center text-sm font-medium text-gray-600">{status}</p>
+        <p className="mt-4 text-center text-lg font-medium text-gray-400">{status}</p>
       </div>
     </div>
   );
