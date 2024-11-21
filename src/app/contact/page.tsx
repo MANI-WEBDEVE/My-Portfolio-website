@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,11 +10,14 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  // Debounced handleChange function
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    
-  };
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
