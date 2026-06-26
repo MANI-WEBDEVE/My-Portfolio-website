@@ -6,6 +6,8 @@ import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <Bounded as="footer" className="">
@@ -20,7 +22,7 @@ const Footer = () => {
             >
               /
             </span>
-            <p className="text-sm">© 2024 Muhammad Inam</p>
+            <p className="text-sm">© {currentYear} Muhammad Inam</p>
           </div>
           <div className="flex items-center gap-3">
             <ul className="flex items-center gap-4 font-bold">

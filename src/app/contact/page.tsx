@@ -9,7 +9,7 @@ export default function Contact() {
   });
 
   const [status, setStatus] = useState("");
-
+  const [stop, setStop] = useState(false);
   // Debounced handleChange function
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -42,7 +42,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br  relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute w-96 h-96 bg-blue-400/30 rounded-full blur-3xl -top-68 left-28 animate-pulse "></div>
+      <h1>Service Stop Now</h1>
+      <p>but avaliable few day technical fault</p>
+      {/* <div className="absolute w-96 h-96 bg-blue-400/30 rounded-full blur-3xl -top-68 left-28 animate-pulse "></div>
       <div className="absolute w-96 h-96 bg-purple-200/20 rounded-full blur-3xl -bottom-18 -right-48 animate-pulse delay-700 "></div>
       
       <div className="w-full max-w-md p-8 rounded-2xl shadow-2xl  backdrop-blur-sm  border-[1px] border-neutral-700 relative z-10 hover:shadow-blue-500/10 transition-all duration-500">
@@ -89,7 +91,7 @@ export default function Contact() {
           </button>
         </form>
         <p className="mt-4 text-center text-lg font-medium text-gray-400">{status}</p>
-      </div>
+      </div> */}
     </div>
   );
 }
